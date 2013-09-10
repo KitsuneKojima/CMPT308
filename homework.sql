@@ -1,2 +1,5 @@
 -- HOMEWORK 1
 -- NIKOL PETTINE
+-- 1 
+SELECT * FROM Orders WHERE x=y
+ 
