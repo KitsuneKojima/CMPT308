@@ -14,3 +14,6 @@ SELECT ordno, aid FROM Orders
 
 -- 5
 SELECT name, city FROM Customers WHERE city != 'Dallas'
+
+-- 6
+SELECT name FROM Agents WHERE city = 'New York' OR city = 'Newark'
