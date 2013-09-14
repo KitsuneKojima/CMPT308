@@ -21,3 +21,6 @@ SELECT name FROM Agents WHERE city = 'New York' OR city = 'Newark'
 -- 7
 SELECT * FROM Products 
 WHERE city != 'New York' AND city != 'Newark' And priceusd <= 1.00
+
+-- 8
+SELECT * FROM Orders WHERE mon = 'jan' OR mon = 'mar'
