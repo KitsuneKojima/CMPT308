@@ -17,3 +17,7 @@ SELECT name, city FROM Customers WHERE city != 'Dallas'
 
 -- 6
 SELECT name FROM Agents WHERE city = 'New York' OR city = 'Newark'
+
+-- 7
+SELECT * FROM Products 
+WHERE city != 'New York' AND city != 'Newark' And priceusd <= 1.00
