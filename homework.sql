@@ -1,5 +1,6 @@
--- HOMEWORK 1
+-- Queries HOMEWORK 1
 -- NIKOL PETTINE
+
 -- 1 
 SELECT * FROM Customers 
 
@@ -26,4 +27,7 @@ WHERE city != 'New York' AND city != 'Newark' And priceusd <= 1.00
 SELECT * FROM Orders WHERE mon = 'jan' OR mon = 'mar'
 
 -- 9 
-SELECT * FROM Orders Where mon = 'feb' AND dollars < 100
+SELECT * FROM Orders WHERE mon = 'feb' AND dollars < 100
+
+-- 10
+SELECT * FROM Orders WHERE cid = 'c005'
