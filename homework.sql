@@ -11,3 +11,6 @@ SELECT pid, name, quantity FROM Products WHERE priceusd > 1.25
 
 -- 4
 SELECT ordno, aid FROM Orders
+
+-- 5
+SELECT name, city FROM Customers WHERE city != 'Dallas'
