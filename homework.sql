@@ -24,3 +24,6 @@ WHERE city != 'New York' AND city != 'Newark' And priceusd <= 1.00
 
 -- 8
 SELECT * FROM Orders WHERE mon = 'jan' OR mon = 'mar'
+
+-- 9 
+SELECT * FROM Orders Where mon = 'feb' AND dollars < 100
