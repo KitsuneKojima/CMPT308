@@ -1,4 +1,4 @@
--- Queries HOMEWORK 1
+-- Queries homework 1
 -- NIKOL PETTINE
 
 -- 1 
