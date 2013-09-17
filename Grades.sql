@@ -1,6 +1,6 @@
 CREATE Table students 
 (
-   sid character(3) NOT NULL,
+   sid character(3) NOT NULL primary key,
    name varchar(16)
 )
 
@@ -23,13 +23,13 @@ INSERT INTO students (sid, name)
    VALUES ('s06', 'Elenore');
 
 INSERT INTO students (sid, name)
-   VALUES ('so7', 'Stu');
+   VALUES ('s07', 'Stu');
 
 
 --teachers
 CREATE TABLE teachers
 (
-   tid character(3) NOT NULL,
+   tid character(3) NOT NULL primary key,
    name varchar(25)
 )
 
@@ -43,12 +43,12 @@ INSERT INTO teachers (tid, name)
    VALUES ('t03', 'Jefferson');
 
 INSERT INTO teachers (tid, name)
-   VALUES ('t04', 'Lincdn');
+   VALUES ('t04', 'Lincoln');
    
 --Subjects
 CREATE TABLE subjects
 (
-   subid char(4) NOT NULL,
+   subid char(4) NOT NULL primary key,
    name varchar(25)
 )
 
