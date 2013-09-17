@@ -129,8 +129,19 @@ WHERE tid in
   )
 
 --Name teachers who do not teach
-
+SELECT DISTINCT name
+FROM teachers
+WHERE NOT teachers.tid in (
+   SELECT tid 
+   FROM grades
+)
 --Name students who have taken no classes
+SELECT DISTINCT name
+FROM students
+WHERE NOT students.sid in (
+   SELECT sid 
+   FROM grades
+)
 --Name of students in same class, and class name
 
    
