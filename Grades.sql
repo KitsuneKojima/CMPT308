@@ -102,8 +102,34 @@ ORDER BY name
 --WHERE teachers.tid = grades.tid 
 --   AND teachers.name = 'Adams'
 --   AND students.sid = grades.sid
+
+--Subqueries
+SELECT DISTINCT name
+From students
+WHERE sid in
+ (SELECT sid
+  FROM grades
+  WHERE grades.tid in
+     (SELECT tid
+      FROM teachers
+      WHERE teachers.name = 'Adams'
+      )
+  )
 --Name teachers who have taught Biology
+SELECT DISTINCT name
+From teachers
+WHERE tid in
+ (SELECT tid
+  FROM grades
+  WHERE grades.subid in
+     (SELECT subid
+      FROM subjects
+      WHERE subjects.name = 'Biology'
+      )
+  )
+
 --Name teachers who do not teach
+
 --Name students who have taken no classes
 --Name of students in same class, and class name
 
