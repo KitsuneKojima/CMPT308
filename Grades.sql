@@ -92,7 +92,20 @@ INSERT INTO grades (gid, sid, subid, tid, grades)
 INSERT INTO grades (gid, sid, subid, tid, grades)
    VALUES ('g07', 's03', 'sb03', 't04', 'B');   
   
-
+--All students in alpha order
+SELECT *
+FROM students
+ORDER BY name
+--Names of studemts who have Adams for any classes
+--SELECT grades.name
+--FROM grades, teachers
+--WHERE teachers.tid = grades.tid 
+--   AND teachers.name = 'Adams'
+--   AND students.sid = grades.sid
+--Name teachers who have taught Biology
+--Name teachers who do not teach
+--Name students who have taken no classes
+--Name of students in same class, and class name
 
    
    
