@@ -63,3 +63,16 @@ WHERE products.pid in
       WHERE orders.aid = 'a03'
      )
   )
+  
+-- 6
+SELECT name, dicount
+FROM customers
+WHERE customers.cid in 
+  (SELECT DISTINCT cid
+   FROM orders
+   WHERE orders.aid in
+     (SELECT aid
+      FROM agents
+      WHERE agents.city = 'Dallas' OR agents.city = 'Duluth'
+     )
+  )
