@@ -1,0 +1,2 @@
+-- Queries homework 2
+-- Nikol Pettine
