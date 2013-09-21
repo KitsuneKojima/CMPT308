@@ -11,7 +11,7 @@ WHERE aid in
  )
  
 -- 2
-SELECT DISTINCT pid
+SELECT pid
 FROM products
 WHERE pid in
   ( SELECT pid
@@ -26,3 +26,12 @@ WHERE pid in
            )
       )
   ) 
+  
+-- 3
+SELECT cid, name 
+FROM customers
+WHERE NOT customers.cid in
+  (SELECT cid
+   FROM orders
+   WHERE orders.aid = 'a03'
+  )
