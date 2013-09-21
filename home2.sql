@@ -50,3 +50,16 @@ WHERE customers.cid in
    FROM orders
    WHERE orders.pid = 'p07'
   )
+  
+-- 5
+SELECT pid
+FROM products
+WHERE products.pid in
+  (SELECT pid
+   FROM orders
+   WHERE orders.cid in
+     (SELECT cid
+      FROM orders
+      WHERE orders.aid = 'a03'
+     )
+  )
