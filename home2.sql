@@ -35,3 +35,18 @@ WHERE NOT customers.cid in
    FROM orders
    WHERE orders.aid = 'a03'
   )
+  
+-- 4
+SELECT cid, name
+FROM customers
+WHERE customers.cid in
+  (SELECT DISTINCT cid
+   FROM orders
+   WHERE orders.pid = 'p01' 
+   
+   INTERSECT
+   
+   SELECT DISTINCT cid
+   FROM orders
+   WHERE orders.pid = 'p07'
+  )
