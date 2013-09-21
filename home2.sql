@@ -1,5 +1,5 @@
 -- Queries homework 2
--- Nikol Pettine
+-- Nikol Pettine  
 
 -- 1
 SELECT DISTINCT city
