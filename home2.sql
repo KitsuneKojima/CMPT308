@@ -76,3 +76,18 @@ WHERE customers.cid in
       WHERE agents.city = 'Dallas' OR agents.city = 'Duluth'
      )
   )
+  
+-- 7
+SELECT *
+FROM customers
+WHERE customers.discount in
+  (SELECT discount
+   FROM customers
+   WHERE customers.city = 'Dallas' OR customers.city = 'Kyoto'
+  )
+  
+EXCEPT
+   
+SELECT *
+FROM customers
+WHERE customers.city = 'Dallas' OR customers.city = 'Kyoto'
