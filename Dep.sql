@@ -57,7 +57,14 @@ INSERT INTO FY( year, start, endDate )
   
 --Queries
 --List all people, Fiscal year in which they they were hired, and department
+Select people.firstName, people.lastName, FY.year, Departments.name
+From people, departments
+Where people.Did = departments.Did
+  and FY.endDate >= people.HireDate 
+  and Fy.startdate <= people.HireDate
+  
 --List all department names and the number of people in each.
+
 --List all Fyears and the number of people hired in that time span
 --list all Fyears and the number of departments founded in that time span
 --List all departments with no people
