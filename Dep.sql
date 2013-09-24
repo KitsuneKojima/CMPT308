@@ -69,8 +69,12 @@ Where people.Did = departments.Did
   and FY.start <= people.HireDate
   
 --List all department names and the number of people in each.
+Select departments.name, count(people.*)
+From departments, people
+Where people.Did = departments.Did
 
 --List all Fyears and the number of people hired in that time span
+
 --list all Fyears and the number of departments founded in that time span
 --List all departments with no people
 --List all people with no departments
