@@ -72,6 +72,7 @@ Where people.Did = departments.Did
 Select departments.name, count(people.*)
 From departments, people
 Where people.Did = departments.Did
+Group By departments.name
 
 --List all Fyears and the number of people hired in that time span
 
