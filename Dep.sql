@@ -56,30 +56,41 @@ INSERT INTO FY( year, start, endDate )
   
   
 --Queries
---List all people, dtae hired, and their department
+--1 List all people, dtae hired, and their department
 Select people.firstName, people.lastName, people.HireDate, Departments.name
 From people, departments
 Where people.Did = departments.Did
 
---List all people, Fiscal year in which they they were hired, and department
+--2 List all people, Fiscal year in which they they were hired, and department
 Select people.firstName, people.lastName, FY.year, Departments.name
 From people, departments, FY
 Where people.Did = departments.Did
   and FY.endDate >= people.HireDate 
   and FY.start <= people.HireDate
   
---List all department names and the number of people in each.
+--3 List all department names and the number of people in each.
 Select departments.name, count(people.*)
 From departments, people
 Where people.Did = departments.Did
 Group By departments.name
 
---List all Fyears and the number of people hired in that time span
+--4 List all Fyears and the number of people hired in that time span
+Select FY.year, count(people.*)
+From people, FY
+Where FY.endDate >= people.HireDate 
+  and FY.start <= people.HireDate
+Group By FY.year  
 
---list all Fyears and the number of departments founded in that time span
---List all departments with no people
---List all people with no departments
---List all peopel hired before department was founded.
+--5 List all Fyears and the number of departments founded in that time span
+Select FY.year, count(departments.*)
+From FY, departments
+Where FY.endDate >= departments.dateFormed
+  and FY.start <= departments.dateFormed
+Group By FY.year  
+
+--6 List all departments with no people
+--7 List all people with no departments
+--8 List all peopel hired before department was founded.
   
   
   
