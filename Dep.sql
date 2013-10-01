@@ -56,10 +56,14 @@ INSERT INTO FY( year, start, endDate )
   
   
 --Queries
---1 List all people, dtae hired, and their department
+--1 List all people, date hired, and their department
 Select people.firstName, people.lastName, people.HireDate, Departments.name
 From people, departments
 Where people.Did = departments.Did
+
+--1 Using Inner join
+Select p1.firstName, p1.lastName, Departments.name
+From people p1 inner join departments on p1.Did = departments.Did
 
 --2 List all people, Fiscal year in which they they were hired, and department
 Select people.firstName, people.lastName, FY.year, Departments.name
@@ -92,5 +96,9 @@ Group By FY.year
 --7 List all people with no departments
 --8 List all peopel hired before department was founded.
   
+--Outer join showing all departments and people in it
+Select DISTINCT p1.firstName, p1.lastName, Departments.name
+From people p1 right outer join departments on p1.Did = departments.Did
   
-  
+Select DISTINCT p1.firstName, p1.lastName, Departments.name
+From departments left outer join people p1 on p1.Did = departments.Did
