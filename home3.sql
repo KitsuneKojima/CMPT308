@@ -48,3 +48,8 @@ WHERE cid NOT in (SELECT DISTINCT cid
 SELECT c.name
 FROM customers c left outer join orders o on o.cid = c.cid
 WHERE o.ordno IS NULL 
+
+-- 7
+SELECT DISTINCT c.name AS "Customer Name", a.name AS "Agent Name"
+FROM customers c, orders o, agents a
+WHERE o.cid = c.cid AND o.aid = a.aid AND c.city = a.city
