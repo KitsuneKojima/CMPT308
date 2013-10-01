@@ -144,5 +144,12 @@ WHERE NOT students.sid in (
 )
 --Name of students in same class, and class name
 
-   
+--Views - on ex code online
+Create View TeachersWOClass 
+as
+	select name
+	from teachers
+	where tid not in 
+	  (select teacherID
+	   from grades);
    
