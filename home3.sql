@@ -37,3 +37,9 @@ SELECT DISTINCT o1.pid
 FROM orders o1, orders o2, customers c
 WHERE o2.cid = c.cid AND c.city = 'Kyoto' AND o1.aid = o2.aid
 ORDER BY o1.pid
+
+-- 5
+SELECT c.name
+FROM customers c
+WHERE cid NOT in (SELECT DISTINCT cid
+                   FROM orders)
