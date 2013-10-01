@@ -31,3 +31,9 @@ WHERE pid in
            )
       )
   ) 
+  
+-- 4
+SELECT DISTINCT o1.pid
+FROM orders o1, orders o2, customers c
+WHERE o2.cid = c.cid AND c.city = 'Kyoto' AND o1.aid = o2.aid
+ORDER BY o1.pid
