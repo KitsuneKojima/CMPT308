@@ -43,3 +43,8 @@ SELECT c.name
 FROM customers c
 WHERE cid NOT in (SELECT DISTINCT cid
                    FROM orders)
+                   
+-- 6
+SELECT c.name
+FROM customers c left outer join orders o on o.cid = c.cid
+WHERE o.ordno IS NULL 
