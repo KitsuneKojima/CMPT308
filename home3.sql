@@ -113,3 +113,9 @@ ORDER BY c.name
 SELECT c.name AS "Customer Name", p.name AS "Product Name", a.name AS "Agent name"
 FROM customers c, products p, agents a, orders o
 WHERE o.cid = c.cid AND o.pid = p.pid AND o.aid = a.aid AND a.city = 'New York'
+
+-- 16
+SELECT o.dollars, ((p.priceusd * o.qty) - ((c.discount / 100) * (p.priceusd * o.qty))) AS "Check of Orders"
+FROM orders o, products p, customers c
+WHERE o.cid = c.cid AND o.pid = p.pid 
+  AND o.dollars = ((p.priceusd * o.qty) - ((c.discount / 100) * (p.priceusd * o.qty)))
