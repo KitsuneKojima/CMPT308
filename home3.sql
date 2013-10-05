@@ -115,7 +115,19 @@ FROM customers c, products p, agents a, orders o
 WHERE o.cid = c.cid AND o.pid = p.pid AND o.aid = a.aid AND a.city = 'New York'
 
 -- 16
-SELECT o.dollars, ((p.priceusd * o.qty) - ((c.discount / 100) * (p.priceusd * o.qty))) AS "Check of Orders"
+SELECT o.ordno, o.dollars, ((p.priceusd * o.qty) - ((c.discount / 100) * (p.priceusd * o.qty))) AS "Check of Orders"
 FROM orders o, products p, customers c
 WHERE o.cid = c.cid AND o.pid = p.pid 
   AND o.dollars = ((p.priceusd * o.qty) - ((c.discount / 100) * (p.priceusd * o.qty)))
+  
+-- 17
+UPDATE orders
+SET dollars = 451.00
+WHERE ordno = 1011
+--ordno 1011 should not show up in query output
+SELECT o.ordno, o.dollars, ((p.priceusd * o.qty) - ((c.discount / 100) * (p.priceusd * o.qty))) AS "Check of Orders"
+FROM orders o, products p, customers c
+WHERE o.cid = c.cid AND o.pid = p.pid 
+  AND o.dollars = ((p.priceusd * o.qty) - ((c.discount / 100) * (p.priceusd * o.qty)))
+--ordno 1011 does not show up  
+  
