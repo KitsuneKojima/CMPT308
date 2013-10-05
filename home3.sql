@@ -59,3 +59,13 @@ SELECT c.name AS "Customer Name", a.name AS "Agent Name", a.city AS "City"
 FROM customers c, agents a
 WHERE c.city = a.city
 Order By "City"
+
+-- 9
+SELECT c.name AS "Customer Name", c.city
+FROM customers c, products p
+WHERE c.city = p.city 
+GROUP BY c.name, c.city
+HAVING sum(quantity) <= (SELECT min(sum)
+                          FROM (SELECT sum(quantity)
+                                FROM  products p
+                                GROUP BY p.city) AS sums)
