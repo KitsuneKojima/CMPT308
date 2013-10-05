@@ -101,16 +101,16 @@ HAVING p.priceusd > (SELECT avg(priceUSD)
 SELECT c.name AS "Customer Name", o.pid, o.dollars
 FROM customers c, orders o
 WHERE o.cid = c.cid
-ORDER BY dollars desc
+ORDER BY o.dollars desc
 
--- 14  total ordered takenn as sum of qty
+-- 14  total ordered taken as sum of qty
 SELECT c.name, Coalesce(sum(o.qty), 0)
 FROM customers c left outer join orders o on o.cid = c.cid
 GROUP BY c.cid
 ORDER BY c.name
 
 -- 15
-SELECT c.name AS "Customer Name", p.name AS "Product Name", a.name AS "Agent name"
+SELECT c.name AS "Customer Name", p.name AS "Product Name", a.name AS "Agent Name"
 FROM customers c, products p, agents a, orders o
 WHERE o.cid = c.cid AND o.pid = p.pid AND o.aid = a.aid AND a.city = 'New York'
 
