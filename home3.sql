@@ -53,3 +53,9 @@ WHERE o.ordno IS NULL
 SELECT DISTINCT c.name AS "Customer Name", a.name AS "Agent Name"
 FROM customers c, orders o, agents a
 WHERE o.cid = c.cid AND o.aid = a.aid AND c.city = a.city
+
+-- 8
+SELECT c.name AS "Customer Name", a.name AS "Agent Name", a.city AS "City"
+FROM customers c, agents a
+WHERE c.city = a.city
+Order By "City"
