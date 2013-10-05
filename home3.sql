@@ -79,3 +79,14 @@ HAVING sum(quantity) >= (SELECT max(sum)
                           FROM (SELECT sum(quantity)
                                  FROM  products p
                                  GROUP BY p.city) AS sums)
+                                 
+-- 11
+SELECT c.name AS "Customer Name", c.city
+FROM customers c, products p
+WHERE c.city = p.city 
+GROUP BY c.name, c.city
+HAVING sum(quantity) > (SELECT min(sum)
+                         FROM (SELECT sum(quantity)
+                                FROM  products p
+                                GROUP BY p.city) AS sums)
+                                
