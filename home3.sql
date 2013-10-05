@@ -97,4 +97,8 @@ GROUP BY p.pid
 HAVING p.priceusd > (SELECT avg(priceUSD) 
                       FROM products)
                       
-
+-- 13
+SELECT c.name AS "Customer Name", o.pid, o.dollars
+FROM customers c, orders o
+WHERE o.cid = c.cid
+ORDER BY dollars desc
