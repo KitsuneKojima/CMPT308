@@ -90,3 +90,11 @@ HAVING sum(quantity) > (SELECT min(sum)
                                 FROM  products p
                                 GROUP BY p.city) AS sums)
                                 
+-- 12
+SELECT *
+FROM products p
+GROUP BY p.pid
+HAVING p.priceusd > (SELECT avg(priceUSD) 
+                      FROM products)
+                      
+
