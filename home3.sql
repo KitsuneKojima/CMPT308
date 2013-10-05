@@ -102,3 +102,9 @@ SELECT c.name AS "Customer Name", o.pid, o.dollars
 FROM customers c, orders o
 WHERE o.cid = c.cid
 ORDER BY dollars desc
+
+-- 14  total ordered takenn as sum of qty
+SELECT c.name, Coalesce(sum(o.qty), 0)
+FROM customers c left outer join orders o on o.cid = c.cid
+GROUP BY c.cid
+ORDER BY c.name
