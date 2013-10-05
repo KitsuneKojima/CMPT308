@@ -108,3 +108,8 @@ SELECT c.name, Coalesce(sum(o.qty), 0)
 FROM customers c left outer join orders o on o.cid = c.cid
 GROUP BY c.cid
 ORDER BY c.name
+
+-- 15
+SELECT c.name AS "Customer Name", p.name AS "Product Name", a.name AS "Agent name"
+FROM customers c, products p, agents a, orders o
+WHERE o.cid = c.cid AND o.pid = p.pid AND o.aid = a.aid AND a.city = 'New York'
